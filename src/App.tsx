@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaCoffee,
   FaEnvelope,
@@ -6,12 +7,16 @@ import {
   FaMapPin,
   FaPhone,
   FaTiktok,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 import "./App.css";
 
 import Carousel from "./Components/Carousel/Carousel";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="app">
       <header className="header">
@@ -19,7 +24,7 @@ function App() {
           <img src="https://patomarcoffee.cl/wp-content/uploads/2025/07/Pago-de-derechosRecurso-10.png" />
         </a>
 
-        <nav className="navbar">
+        <nav className={`navbar ${menuOpen ? "open" : ""}`}>
           <a href="#">Blog Cafetero</a>
           <a href="#">Carta</a>
           <a href="#">Contacto</a>
@@ -38,9 +43,14 @@ function App() {
             <FaTiktok />
           </a>
         </div>
+
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </header>
 
-      <div style={{ height: "84px", color: "black" }} />
+      <div style={{ height: "84px" }} />
+
       <section id="inicio" className="hero">
         <img
           className="hero-image"
@@ -65,6 +75,7 @@ function App() {
               Descubre nuestra historia
             </a>
           </div>
+
           <a className="scroll-indicator" href="#nosotros">
             <span>Desliza para más</span>
             <div className="arrow"></div>
@@ -95,6 +106,7 @@ function App() {
             </p>
 
             <p>Nuestra misión es sencilla:</p>
+
             <blockquote>
               Llevar el mejor café de especialidad hasta ti, sin límites, y
               hacer que cada taza sea una experiencia única.
@@ -214,13 +226,14 @@ function App() {
               <FaEnvelope /> patomarcoffee@gmail.com
             </p>
             <p>
-              <FaPhone /> +569 51543540
+              <FaPhone /> +569 5154 3540
             </p>
             <p>
               <a href="https://maps.app.goo.gl/ibNwzakoyN1mmZyK9">
                 <FaMapPin /> Angol #1621 Renca
               </a>
             </p>
+
             <section className="map-section">
               <div className="map-container">
                 <iframe

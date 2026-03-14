@@ -543,13 +543,154 @@ blockquote {
 
 /* responsive */
 
-@media (max-width: 900px) {
-  .footer-container {
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* tablet */
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 20px 40px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 84px;
+    left: 0;
+    width: 100%;
+    background: var(--dark);
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 40px 0;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar.open {
+    transform: translateY(0);
+  }
+
+  .socials {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .about-container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .footer-brand p {
-    max-width: 100%;
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .newsletter {
+    height: fit-content;
+  }
+
+  .newsletter-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* phones */
+
+@media (max-width: 600px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .hero {
+    height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .about {
+    padding: 80px 20px;
+  }
+
+  .about-text h2 {
+    font-size: 36px;
+  }
+
+  .events-header h2,
+  .events-cta h2 {
+    font-size: 36px;
+  }
+
+  .team {
+    padding: 80px 20px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter {
+    padding: 40px 20px;
+    height: auto;
+  }
+
+  .newsletter-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    width: 100%;
+  }
+
+  .footer-full {
+    padding: 60px 20px 30px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1:hover {
+    transform: none;
   }
 }
